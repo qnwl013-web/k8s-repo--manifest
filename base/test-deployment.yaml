@@ -1,5 +1,25 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-  - test-deployment.yaml
-  - test-service.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-test
+  namespace: default
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 2
+  selector:
+    matchLabels:
+      app: deploy-test
+  template:
+    metadata:
+      labels:
+        app: deploy-test
+    spec:
+      containers:
+        - name: deploy-test
+          image: nginx:1.26
+          ports:
+            - containerPort: 5000
