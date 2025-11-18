@@ -5,7 +5,7 @@ images:
   newName: nginx
   newTag: 1.29.1
 resources:
-- ../../base
+- ../base
 patchesStrategicMerge:
 - deployment-patch.yaml
 - service-patch.yaml
