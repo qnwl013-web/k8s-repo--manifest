@@ -1,0 +1,26 @@
+# lunchapp-front-deployment.yaml 내용
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lunchapp-front
+  labels:
+    app: lunchapp
+    component: frontend
+spec:
+  replicas: 2 # 필요에 따라 레플리카 수 설정
+  selector:
+    matchLabels:
+      app: lunchapp
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: lunchapp
+        component: frontend
+    spec:
+      containers:
+      - name: front
+        # Harbor에 푸시한 경로와 태그를 사용합니다.
+        image: 192.168.56.203/dev-project/lunchapp-front:1.0.0 
+        ports:
+        - containerPort: 3000

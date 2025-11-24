@@ -1,0 +1,26 @@
+# lunchapp-back-deployment.yaml 내용
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lunchapp-back
+  labels:
+    app: lunchapp
+    component: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lunchapp
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: lunchapp
+        component: backend
+    spec:
+      containers:
+      - name: back
+        # Harbor에 푸시한 경로와 태그를 사용합니다.
+        image: 192.168.56.203/dev-project/lunchapp-back:1.0.0
+        ports:
+        - containerPort: 8080
