@@ -13,11 +13,4 @@ spec:
     metadata:
       labels:
         app: deploy-test
-    spec: # <--- 이 부분부터 새로 추가
-      containers:
-      # Front-end 컨테이너 패치
-      - name: front # base/deployment.yaml에 정의된 컨테이너 이름과 일치해야 함
-        image: 192.168.56.203/dev-project/lunchapp-front:1.0.0 # <-- Jenkins가 수정할 라인
-      # Back-end 컨테이너 패치 (추가로 필요하면)
-      - name: back # base/deployment.yaml에 정의된 컨테이너 이름과 일치해야 함
-        image: 192.168.56.203/dev-project/lunchapp-back:1.0.0 # <-- Jenkins가 수정할 라인        
+    
