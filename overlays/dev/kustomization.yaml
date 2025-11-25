@@ -5,7 +5,7 @@ images:
   newName: nginx
   newTag: 1.29.1
 resources:
-- ../../base  # ⬅️ 이전에 문제가 되었던 '../base'를 '두 단계 상위'로 수정했습니다.
+- ../../base/kustomization.yaml  # ⬅️ **'base' 디렉터리 자체가 아닌, 'kustomization.yaml' 파일을 명시합니다.**
 patchesStrategicMerge:
 - deployment-patch.yaml
 - service-patch.yaml
