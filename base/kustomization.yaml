@@ -1,3 +1,4 @@
+# k8s-repo--manifest/base/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
@@ -5,7 +6,6 @@ images:
   newName: nginx
   newTag: 1.27.1
 resources:
-- ../../base
-patchesStrategicMerge:
-- deployment-patch.yaml
-- service-patch.yaml
+- deployment.yaml  # ⬅️ base 디렉터리 내 파일만 참조 (추정)
+- service.yaml     # ⬅️ base 디렉터리 내 파일만 참조 (추정)
+# patchesStrategicMerge 등 외부 참조는 모두 제거되었어야 합니다.
