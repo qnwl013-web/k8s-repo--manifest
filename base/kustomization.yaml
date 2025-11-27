@@ -9,4 +9,4 @@ images:
 resources:
 - test-deployment.yaml  # ⬅️ 파일 이름 수정 (test- 접두사 추가)
 - test-service.yaml     # ⬅️ 파일 이름 수정 (test- 접두사 추가)
-- namespace.yam
+- namespace.yaml
